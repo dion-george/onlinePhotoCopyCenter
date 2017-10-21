@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Detecting PDF page count from JS</title>
+    <script src="PDFPageCount.js" type="text/javascript"></script>
+</head>
+<body>
+<script type="text/javascript">
+    function callbackFunc(pageCount) {
+        alert("Number of pages in the given document:"+ pageCount);
+    }
+
+	//will work with standard Ajax/XHR cross domain roles. PDF from same domain or with CORS policy
+	//This sample needs to be hosted in a webserver or a localhost as many modern browsers will not allow the PDF to load locally
+	PDFPageCount.getPageCount("HTML5_draft.pdf", callbackFunc);
+</script>
+
+<p>File used for testing - HTML5_draft.pdf</p>
+<p>Total pages - 7</p>
+<button type="button" onclick="callbackFunc()">Click</button>
+</body>
+</html>
