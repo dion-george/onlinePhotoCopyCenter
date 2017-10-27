@@ -1,52 +1,3 @@
-<?php
-include_once 'dbconfig.php';
-if(isset($_POST['btn-upload']))
-{    
-  session_start();
-
- $file = rand(1000,100000)."-".$_FILES['file']['name'];
-    $file_loc = $_FILES['file']['tmp_name'];
- $file_size = $_FILES['file']['size'];
- $file_type = $_FILES['file']['type'];
- $folder="uploads/";
- 
- // new file size in KB
- $new_size = $file_size/1024;  
- // new file size in KB
- 
- // make file name in lower case
- $new_file_name = strtolower($file);
- // make file name in lower case
- 
- $final_file=str_replace(' ','-',$new_file_name);
- 
-
- if(move_uploaded_file($file_loc,$folder.$final_file))
- {
-
-  $sql=mysqli_query($con,"INSERT INTO files(file,type,size) VALUES('$final_file','$file_type','$new_size')")or die(mysqli_error($con));
-  
-  
-  ?>
-  <script>
-  
-        window.location.href='admin.php';
-        </script>
-  <?php
- }
- else
- {
-  ?>
-  <script>
-  alert('error while uploading file');
-        window.location.href='filePage.php?fail';
-        </script>
-  <?php
- }
-}
-?>
-
-
 
 <!DOCTYPE html>
 <html >
@@ -96,29 +47,7 @@ if(isset($_POST['btn-upload']))
 
 <div id="body">
  <form action="filePage.php" method="post" enctype="multipart/form-data">
- <input type="file" name="file" accept="application/pdf" style="margin:10px" />
 
-
-
-<div class="col-md-6 AddedPadding" >
-<div class="well well-lg" style="background-color: rgb(255,255,255)">
-
-
-<h4 style="margin-left:10px">No. of Copies</h4>
-<input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength = 3 style="margin:10px; width:60px" value =1>
-</input>
-</div>
-</div>
-
-
-<div class="col-md-6 AddedPadding" >
-<div class="well well-lg" style="background-color: rgb(255,255,255)">
-
-
-<h4 style="margin-left:10px">Black or White</h4>
-
-</div>
-</div>
 
 
 
@@ -144,18 +73,6 @@ echo '<h3 id="finalp" style="color:black">'.$_SESSION["balance"].'</h3>';
 
 ?>
 
-
-
-<script>
-  // function cutBalance(){
-  //   alert("here");
-  //   var bal = <?php>echo $_SESSION["balance"]; ?>
-  //   var pgs = document.getElementbyId("pgs").value;
-  //   var res = bal-pgs; 
-  //   document.getElementbyId("finalp").innerHTML=res;
-  // }
-
-</script>
 
 
 
