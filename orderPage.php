@@ -5,7 +5,7 @@
     {
         // $cmd = "/path/to/pdfinfo";           // Linux
         // $cmd = "C:\\path\\to\\pdfinfo.exe";  // Windows
-        $cmd = "pdfinfo";  // Windows
+        $cmd = "cd tools && pdfinfo";  // Windows
 
         // Parse entire output
         // Surround with double quotes if file name has spaces
@@ -30,7 +30,7 @@
 
     function getPDFPages_py($document)
     {
-        $cmd = "python pdf.py ";  // Windows
+        $cmd = "cd tools && python pdf.py ";  // Windows
         $path = "uploads/".$document;
         exec($cmd.$path, $pagecount);
 
@@ -40,7 +40,7 @@
     $ncopies = $_SESSION["ncopies"];
     $type = $_SESSION["type"];
     // Use the function
-    $pages = getPDFPages($_SESSION['filename']);  // Output: 2
+    $pages = getPDFPages_py($_SESSION['filename']);  // Output: 2
     $totalpgs = $ncopies*$pages;
     if($type == "color")
         $price = $pages*$ncopies*10;
