@@ -5,7 +5,7 @@
     {
         // $cmd = "/path/to/pdfinfo";           // Linux
         // $cmd = "C:\\path\\to\\pdfinfo.exe";  // Windows
-        $cmd = "pdfinfo";  // Windows
+        $cmd = "cd tools && pdfinfo";  // Windows
 
         // Parse entire output
         // Surround with double quotes if file name has spaces
@@ -30,7 +30,7 @@
 
     function getPDFPages_py($document)
     {
-        $cmd = "python pdf.py ";  // Windows
+        $cmd = "cd tools && python pdf.py ";  // Windows
         $path = "uploads/".$document;
         exec($cmd.$path, $pagecount);
 
