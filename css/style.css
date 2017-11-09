@@ -269,3 +269,13 @@ color: #ffffff !important;
     border-width: 1px;
     border-radius: 4px;
 }
+
+.home{
+color: rgba(250, 250, 250, 1);
+text-align: center;
+padding-top: 40px;
+font-family: "Comic Sans MS", cursive, sans-serif ;
+ background-color: #2f3e4f; 
+font-size: 80px;
+height: 280px;
+}

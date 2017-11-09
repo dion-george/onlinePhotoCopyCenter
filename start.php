@@ -3,6 +3,38 @@ include('dbconfig.php'); ?>
 
 
 
+  <?php 
+    if (isset($_POST['submit']))
+     {
+    $fname=$_POST['firstName'];
+    $lname=$_POST['lastName'];
+    $eId=$_POST['email'];
+    $password=$_POST['psw'];
+    $cPassword=$_POST['psw_repeat'];
+
+    $result=mysqli_query($con,"INSERT INTO signup (firstName,lastName,email,psw,psw_repeat) VALUES ('$fname', '$lname','$eId','$password','$cPassword')")or die (mysqli_error($con));
+    
+     if($result){
+     ?>
+
+      <script>
+      alert('Signed in');
+      window.location.href='start.php';
+      </script>
+    <?php }
+    else if (!$result) {
+      
+      ?>
+      <script>
+         alert('An account already exists with this username');
+      window.location.href='start.php';
+      </script>
+      <?php
+       }   
+    
+    }
+  ?>
+
 
 
 
@@ -18,13 +50,39 @@ include('dbconfig.php'); ?>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
       <link rel="stylesheet" type="text/css" href="css/login.css">
-      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 
   
 </head>
 
 <body>
-  <div class="form">
+
+
+
+<div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header"><a class="navbar-brand" href="#">smartCopy</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
+        
+    </ul>
+
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+  <div class="form" style="margin-top:0px">
       
       <ul class="tab-group">
         <li class="tab active"><a href="#signup">Sign Up</a></li>
@@ -34,7 +92,7 @@ include('dbconfig.php'); ?>
       <div class="tab-content">
         <div id="signup">   
           
-          <form action="signup.php" method="post" id="frmLogin">
+          <form action="start.php" method="post" id="frmLogin">
           
           <div class="top-row">
             <div class="field-wrap">
@@ -56,7 +114,7 @@ include('dbconfig.php'); ?>
             <label for="#{label}">
               Email Address
             </label>
-            <input type="text"  name="email" required>
+            <input type="email"  name="email"  required>
           </div>
           
           <div class="field-wrap">

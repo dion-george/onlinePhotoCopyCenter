@@ -40,13 +40,14 @@
     $ncopies = $_SESSION["ncopies"];
     $type = $_SESSION["type"];
     // Use the function
-    $pages = getPDFPages($_SESSION['filename']);  // Output: 2
+    $pages = getPDFPages_py($_SESSION['filename']);  // Output: 2
     $totalpgs = $ncopies*$pages;
     if($type == "color")
         $price = $pages*$ncopies*10;
     else
         $price = $pages*$ncopies;
 
+    $_SESSION["cbalance"] = $_SESSION["balance"] - $price;
 ?>
 
 <!DOCTYPE html>
@@ -124,7 +125,7 @@ Type Selected:<h4 id="type" style="margin-left:10px"></h4>
 
 
 
-<button class="button button-block" type="submit" name="btn-upload" style="margin:10px">ORDER</button>
+<button class="button button-block" type="submit" name="submit" style="margin:10px">ORDER</button>
 
 
  </form>
@@ -162,7 +163,6 @@ echo '<h3 id="finalp" style="color:black">'.$_SESSION["balance"].'</h3>';
 
 
 </script>
-
 
 
 <script>

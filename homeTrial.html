@@ -1,25 +1,6 @@
-<?php
-include_once 'dbconfig.php';
-if (isset($_POST['submit'])) {
-    $eId=$_POST['email'];
-    $Cbalance=$_POST['balance'];
-    $result=mysqli_query($con,"UPDATE signup SET balance='$Cbalance' WHERE email='$eId'")or die (mysqli_error());
-     if(!$result){
-      echo "not working";
-     }else{
-      header('location:admin.php');
-     }    
-    
-    }
-?>
-
-
-
-
-<!DOCTYPE html>
 <html >
 <head>
-<title>Admin</title>
+<title>Home</title>
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script type="text/javascript" src="js/index.js"></script>
@@ -27,27 +8,9 @@ if (isset($_POST['submit'])) {
 <body class="colorBG">
 
 
-<div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header"><a class="navbar-brand" href="#">smartCopy</a>
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse navbar-menubuilder">
-            <ul class="nav navbar-nav navbar-left">
-
-    </ul>
-
-
-            <ul class="nav navbar-nav navbar-right">
-                <li class="temp"> Welcome admin</li>
-
-
-            </ul>
-        </div>
-    </div>
+<div class="home">
+  smartCopy
 </div>
-
 
 <div class="container colorBG" style="padding-top: 40px">
   <div class="col-md-12 AddedPadding" >

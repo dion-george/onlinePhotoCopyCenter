@@ -55,8 +55,7 @@
 <div class="col-md-6 AddedPadding" >
 <div class="well well-lg" style="background-color: rgb(255,255,255)">
 
-
-<h4 style="margin-left:10px">No. of Copies</h4>
+<h4 style="margin-left:10px; margin-bottom:35px; margin-top:15px">No. of Copies</h4>
 <input name="ncopies" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength = 3 style="margin:10px; width:60px" value =1>
 </input>
 </div>
@@ -65,13 +64,15 @@
 
 <div class="col-md-6 AddedPadding" >
 <div class="well well-lg" style="background-color: rgb(255,255,255)">
-<pre><input style="width:10px;height:10px;" type="radio" name="print_type" value="black and white">BW</pre>
-<pre><input style="width:10px;height:10px;" type="radio" name="print_type" value="color">color</pre>
 
+<input style="width:10px;height:10px;" type="radio" name="print_type" value="black and white" checked="checked"><h4>Black & White</h4>
+<div  style="margin-top:20px">
+<input style="width:10px;height:10px;" type="radio" name="print_type" value="color"><h4>Color</h4>
+</div>
 </div>
 </div>
 <!-- <div class="row"> -->
-    <!-- <div class="col-md-5"> -->
+    <!-- <div class="col-md-5">  -->
 
 <!-- </div> -->
 
@@ -82,7 +83,8 @@
 
 
 
-<button class="button button-block" type="submit" name="btn-upload" style="margin:10px">UPLOAD</button>
+
+<button id = "uploadID" class="button button-block" type="submit" name="btn-upload" style="margin:10px">UPLOAD</button>
 
 
  </form>

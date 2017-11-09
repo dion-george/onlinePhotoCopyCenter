@@ -41,8 +41,27 @@
 
 
 <div class="container colorBG" style="padding-top: 40px">
-<div class="col-md-8 AddedPadding" >
+<div class="col-md-12 AddedPadding" >
 <div class="well well-lg" style="background-color: rgb(255,255,255)">
+
+<h2>Order details</h2>
+
+    <div class="col-md-2" >
+    </div>
+  
+    <div class="col-md-8 AddedPadding" >
+      <div class="well well-lg" style="background-color: rgb(255,255,255)">
+
+      <h4 style="margin-left:10px">No. of Copies</h4>
+<input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength = 3 style="margin:10px; width:60px" value =1>
+</input>
+  </div>
+  </div>  
+
+
+
+
+
 
 
 <div id="body">
@@ -63,20 +82,5 @@
 </div>
 
 
-<div class="col-md-4 AddedPadding">
- <div class="well well-lg" style="background-color: rgb(255,255,255)">
-
-<h2>Current balance:</h2>
-<?php
-  
-echo '<h3 id="finalp" style="color:black">'.$_SESSION["balance"].'</h3>';
-
-?>
-
-
-
-
-
-</div>
 </body>
 </html>

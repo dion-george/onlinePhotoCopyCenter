@@ -32,7 +32,7 @@ if(isset($_POST['btn-upload']))
 
   ?>
   <script>
-          alert('File successfully uploaded');
+          
         // window.location.href='admin.php';
         window.location.href='orderPage.php';
   </script>
